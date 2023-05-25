@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "929352719754",
+    "project_id": "auth-page-learn",
+    "storage_bucket": "auth-page-learn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929352719754:android:e8c1ba3577fda364f27c73",
+        "android_client_info": {
+          "package_name": "com.example.socialauth_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929352719754-f4f6ik6hi5friqcutufnimrihdmkgkm5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBq-il_UXCZ3iRzWVu8lmLL04teMzAp168"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "929352719754-f4f6ik6hi5friqcutufnimrihdmkgkm5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
