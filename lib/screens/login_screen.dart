@@ -1,5 +1,4 @@
 // ignore_for_file: avoid_print, use_build_context_synchronously
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +8,8 @@ import 'package:socialauth_flutter/provider/sign_in_provider.dart';
 
 import '../utils/config.dart';
 import '../utils/snack_bar.dart';
+import 'home_screen.dart';
+import 'next_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -237,18 +238,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 //  Hence, user does not exist therefore, I am
                 //  going to save user data on FireStore along with
                 //  saving user information on SharedPreferences.
-                sp
-                    .saveDataToFirestore()
-                    .then((value) => sp.saveDataToSharedPreferences())
-                    .then(
-                      (value) => sp.setSignIn().then(
-                        (value) {
-                          facebookController.success();
-                          handleAfterSignIn();
-                          //  Above function would be used by Google, Twitter,
-                          //  Facebook and even within Phone authentication.
-                        },
-                      ),
+                sp.saveDataToFirestore().then(
+                      (value) => sp.saveDataToSharedPreferences().then(
+                            (value) => sp.setSignIn().then(
+                              (value) {
+                                facebookController.success();
+                                handleAfterSignIn();
+                                //  Above function would be used by Google, Twitter,
+                                //  Facebook and even within Phone authentication.
+                              },
+                            ),
+                          ),
                     );
               }
             });
@@ -261,7 +261,9 @@ class _LoginScreenState extends State<LoginScreen> {
   //  Handle after sign in
   handleAfterSignIn() {
     Future.delayed(const Duration(milliseconds: 1000)).then(
-      (value) {},
+      (value) {
+        nextScreenReplace(context, const HomeScreen());
+      },
     );
   }
 }

@@ -6,6 +6,7 @@ import '../provider/sign_in_provider.dart';
 import '../utils/config.dart';
 import './login_screen.dart';
 import './home_screen.dart';
+import './next_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -26,18 +27,26 @@ class _SplashScreenState extends State<SplashScreen> {
       const Duration(seconds: 2),
       () {
         sp.isSignedIn == false
-            ? Navigator.pushReplacement(
+            ? nextScreenReplace(
                 context,
-                MaterialPageRoute(
-                  builder: (coontext) => const LoginScreen(),
-                ),
+                const LoginScreen(),
               )
-            : Navigator.pushReplacement(
+            // Navigator.pushReplacement(
+            //     context,
+            //     MaterialPageRoute(
+            //       builder: (coontext) => const LoginScreen(),
+            //     ),
+            //   )
+            : nextScreenReplace(
                 context,
-                MaterialPageRoute(
-                  builder: (coontext) => const HomeScreen(),
-                ),
+                const LoginScreen(),
               );
+        // Navigator.pushReplacement(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (coontext) => const HomeScreen(),
+        //   ),
+        // );
       },
     );
   }
